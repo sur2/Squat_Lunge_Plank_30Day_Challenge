@@ -1,4 +1,4 @@
-workouts = [
+let workouts = [
     {
         "day": 1,
         "squat": "SQUAT 50",
@@ -107,6 +107,9 @@ workouts = [
         "conductLunge": false,
         "conductPlank": false
     }
-
 ]
 
+function getWorkoutsArray()
+{
+    return workouts;
+}
