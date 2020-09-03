@@ -108,8 +108,3 @@ let workouts = [
         "conductPlank": false
     }
 ]
-
-function getWorkoutsArray()
-{
-    return workouts;
-}

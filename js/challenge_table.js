@@ -7,8 +7,14 @@ challenge.appendChild(challengeTable);
 let workoutSize;
 workoutSize = workouts.length;
 
-function makeOneDay() {
+function makeOneDay(nDay) {
+    const oneDayDiv = document.createElement('div');
+    oneDayDiv.innerHTML = 
+    "<p>" + workouts[nDay].squat + "</p>" + 
+    "<p>" + workouts[nDay].lunge + "</p>" + 
+    "<p>" + workouts[nDay].plank + "</p>";
     
+    challengeTable.appendChild(oneDayDiv);
 }
 
 function makeTable() {
@@ -30,7 +36,7 @@ function makeTable() {
 }
 
 function init() {
-
+    makeOneDay(1 - 1);
 }
 
 init();
