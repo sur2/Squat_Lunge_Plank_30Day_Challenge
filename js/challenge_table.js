@@ -7,14 +7,32 @@ challenge.appendChild(challengeTable);
 let workoutSize;
 workoutSize = workouts.length;
 
-function makeOneDay(nDay) {
+function makeOneDay(nDay, dayDiv) {
     const oneDayDiv = document.createElement('div');
-    oneDayDiv.innerHTML = 
-    "<p>" + workouts[nDay].squat + "</p>" + 
-    "<p>" + workouts[nDay].lunge + "</p>" + 
-    "<p>" + workouts[nDay].plank + "</p>";
     
-    challengeTable.appendChild(oneDayDiv);
+    const checkboxSquat = document.createElement('input');
+    checkboxSquat.type = 'checkbox';
+    const labelSquat = document.createElement('label');
+    labelSquat.innerHTML = workouts[nDay].squat + "<br/>";
+    
+    const checkboxLunge = document.createElement('input');
+    checkboxLunge.type = 'checkbox';
+    const labelLunge = document.createElement('label');
+    labelLunge.innerHTML = workouts[nDay].lunge + "<br/>";
+    
+    const checkboxPlank = document.createElement('input');
+    checkboxPlank.type = 'checkbox';
+    const labelPlank = document.createElement('label');
+    labelPlank.innerHTML = workouts[nDay].plank + "<br/>";
+
+    oneDayDiv.appendChild(checkboxSquat);
+    oneDayDiv.appendChild(labelSquat);
+    oneDayDiv.appendChild(checkboxLunge);
+    oneDayDiv.appendChild(labelLunge);
+    oneDayDiv.appendChild(checkboxPlank);
+    oneDayDiv.appendChild(labelPlank);
+    
+    dayDiv.appendChild(oneDayDiv);
 }
 
 function makeTable() {
@@ -32,11 +50,13 @@ function makeTable() {
         const divWorkOut = document.createElement('div');
         divWorkOut.className = `divWorkOut${d}`;
         tableDate.appendChild(divWorkOut);
+
+        makeOneDay(d - 1, tableDate);
     }
 }
 
 function init() {
-    makeOneDay(1 - 1);
+    makeTable();
 }
 
 init();
